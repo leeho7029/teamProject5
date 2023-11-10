@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <th:block th:insert="~{layout/head :: head}"></th:block>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <title>T셀파</title>
+</head>
+<body>
+<th:block th:insert="~{layout/header :: header}"></th:block>
+
+<!-- Spinner End -->
+
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5">
+    <div class="container py-5">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">마켓</h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">마켓</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<div class="container mt-5">
+    <h2 class="mb-4">중고거래 게시글 작성</h2>
+    <form>
+        <div class="mb-3">
+            <label for="category" class="form-label">카테고리</label>
+            <input type="text" class="form-control" id="category" placeholder="카테고리를 입력하세요">
+        </div>
+        <!-- 제목 입력 -->
+        <div class="mb-3">
+            <label for="title" class="form-label">제목</label>
+            <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요" required>
+        </div>
+
+        <!-- 내용 입력 -->
+        <div class="mb-3">
+            <label for="content" class="form-label">내용</label>
+            <textarea class="form-control" id="content" rows="4" placeholder="내용을 입력하세요" required></textarea>
+        </div>
+
+        <!-- 가격 입력 -->
+        <div class="mb-3">
+            <label for="price" class="form-label">구매희망 가격</label>
+            <input type="number" class="form-control" id="price" placeholder="가격을 입력하세요" required>
+        </div>
+
+        <!-- 책 정보 입력 -->
+        <div class="mb-3">
+            <label for="bookTitle" class="form-label">책 사진</label>
+            <img th:src="${book.image}"class="image" alt="Book Image"/>
+        </div>
+        <div class="mb-3">
+            <label for="bookTitle" class="form-label">책 제목</label>
+            <input id="bookTitle" class="form-control"  th:value="${#strings.trim(book.title)}"/>
+        </div>
+        <div class="mb-3">
+            <label for="bookDiscount" class="form-label">책 최저가</label>
+            <input id="bookDiscount" class="form-control"  th:value="${book.discount}"원/>
+        </div>
+        <div class="mb-3">
+            <label for="bookAuthor" class="form-label">책 저자</label>
+            <input type="text" class="form-control" th:value="${book.author}" id="bookAuthor" placeholder="책 저자를 입력하세요">
+        </div>
+        <div class="mb-3">
+            <label for="publisher" class="form-label">출판사</label>
+            <input type="text" th:value="${book.publisher}" class="form-control" id="publisher" placeholder="출판사를 입력하세요">
+        </div>
+        <div class="mb-3">
+            <label for="isbn" class="form-label">ISBN 코드</label>
+            <input type="text" th:value="${book.isbn}" class="form-control" id="isbn" placeholder="ISBN 코드를 입력하세요">
+        </div>
+
+        <!-- 주소 입력 -->
+        <div class="mb-3">
+            <label for="address" class="form-label">주소</label>
+            <input type="text" class="form-control" id="address" placeholder="주소를 입력하세요">
+        </div>
+
+        <!-- 카테고리 입력 -->
+
+
+        <button type="submit" class="btn btn-primary">게시글 작성</button>
+    </form>
+</div>
+<!-- content 영역 종료 -->
+<script th:src="@{/js/common.js}"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+</body>
+</html>
