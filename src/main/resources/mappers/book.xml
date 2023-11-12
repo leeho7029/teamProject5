@@ -8,7 +8,7 @@
     </select>
 
     <insert id="BookInsert">
-        insert into Book(isbn, image,title,author,publisher,pubdate)values(#{isbn},#{image},#{title},#{author},#{publisher},#{pubdate})
+        insert into Book(isbn, image,title,author,publisher,pubdate,discount)values(#{isbn},#{image},#{title},#{author},#{publisher},#{pubdate},#{discount})
     </insert>
 
     <select id="BookDetail" resultType="com.tsherpa.team35.entity.Book">

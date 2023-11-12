@@ -21,4 +21,9 @@ public class MarketCtrl {
         return "redirect:marketList";
     }
 
+    @GetMapping("/marketInsert")
+    public String insertMarket(Model model)throws Exception{
+        return "market/marketInsert";
+    }
+
 }
